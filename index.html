@@ -9,9 +9,10 @@
 <body>
   <header>
     <img src="assets/images/logo.png" alt="Smith Ranch Logo" class="logo" />
-    <h1>Smith Ranch Property Owners Association</h1>
+    <h1>Smith Ranch POA</h1>
     <nav>
-      <ul>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+      <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="general-info.html">General Info</a></li>
         <li><a href="documents.html">Documents</a></li>
@@ -46,5 +47,11 @@
     <p>Contact us at <a href="mailto:smithranchpoa@gmail.com">smithranchpoa@gmail.com</a></p>
     <p>Website questions? Email <a href="mailto:hshine@bcm.edu">David Shine</a></p>
   </footer>
+
+  <script>
+    document.querySelector(".menu-toggle").addEventListener("click", function () {
+      document.querySelector(".nav-links").classList.toggle("active");
+    });
+  </script>
 </body>
 </html>
