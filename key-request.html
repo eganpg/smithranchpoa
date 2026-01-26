@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- <meta http-equiv="refresh" content="0; url=https://smithranchtx.com" /> -->
+  <title>Smith Ranch Property Owners Association - New Website 2025</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <img src="assets/images/logo.jpg" alt="Smith Ranch Logo" class="logo" />
+    <!-- <h1>Smith Ranch POA</h1> -->
+    <nav>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <!-- <li><a href="general-info.html">General Info</a></li> -->
+        <li><a href="documents.html">Documents</a></li>
+        <!-- <li><a href="owner-roster.html">Owner Roster</a></li> -->
+        <li><a href="links.html">Links</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="updates">
+  <h3>Gate Key Request</h3>
+
+  <form id="keyRequestForm">
+    <label>
+      First name
+      <input name="firstName" autocomplete="given-name" required />
+    </label>
+
+    <label>
+      Last name
+      <input name="lastName" autocomplete="family-name" required />
+    </label>
+
+    <label>
+      Lot number
+      <input name="lotNumber" required />
+    </label>
+
+    <label>
+      Number of keys requested
+      <input name="keyCount" type="number" min="1" required />
+    </label>
+
+    <label style="display:flex; gap:10px; align-items:center; justify-content:center;">
+      Replacement key?
+      <input name="isReplacement" type="checkbox" id="isReplacement" />
+    </label>
+
+    <div id="replacementKeyWrap" style="display:none;">
+      <label>
+        Key number being replaced
+        <input name="replacementKeyNumber" id="replacementKeyNumber" />
+      </label>
+    </div>
+
+    <button type="submit">Create Email</button>
+
+    <p id="formStatus" style="margin-top:10px;"></p>
+  </form>
+</section>
+
+
+  </main>
+
+  <footer>
+    <p>Contact us at <a href="mailto:smithranchpoa@gmail.com">smithranchpoa@gmail.com</a></p>
+    <!-- <p>Website questions? Email <a href="mailto:hshine@bcm.edu">David Shine</a></p> -->
+  </footer>
+
+  <script>
+    document.querySelector(".menu-toggle").addEventListener("click", function () {
+      document.querySelector(".nav-links").classList.toggle("active");
+    });
+    const form = document.getElementById("keyRequestForm");
+  const isReplacement = document.getElementById("isReplacement");
+  const replacementWrap = document.getElementById("replacementKeyWrap");
+  const replacementKeyNumber = document.getElementById("replacementKeyNumber");
+  const statusEl = document.getElementById("formStatus");
+
+  function clean(value) {
+    return (value || "").toString().trim();
+  }
+
+  isReplacement.addEventListener("change", () => {
+    const show = isReplacement.checked;
+    replacementWrap.style.display = show ? "block" : "none";
+    replacementKeyNumber.required = show;
+    if (!show) replacementKeyNumber.value = "";
+    statusEl.textContent = "";
+  });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    statusEl.textContent = "";
+
+    const data = new FormData(form);
+
+    const firstName = clean(data.get("firstName"));
+    const lastName = clean(data.get("lastName"));
+    const lotNumber = clean(data.get("lotNumber"));
+    const keyCount = clean(data.get("keyCount"));
+    const replacement = isReplacement.checked;
+    const replacingKey = clean(data.get("replacementKeyNumber"));
+
+    if (replacement && !replacingKey) {
+      statusEl.textContent = "Please enter the key number being replaced.";
+      replacementKeyNumber.focus();
+      return;
+    }
+
+    const subject = `Smith Ranch Key Request - Lot ${lotNumber}`;
+
+    const bodyLines = [
+      "Smith Ranch POA - Gate Key Request",
+      "----------------------------------",
+      `First name: ${firstName}`,
+      `Last name: ${lastName}`,
+      `Lot number: ${lotNumber}`,
+      `Number of keys requested: ${keyCount}`,
+      `Replacement key: ${replacement ? "Yes" : "No"}`,
+      ...(replacement ? [`Key number being replaced: ${replacingKey}`] : []),
+      "",
+      "Thank you,"
+    ];
+
+    const mailto = [
+      "mailto:smithranchpoa@gmail.com",
+      `?subject=${encodeURIComponent(subject)}`,
+      `&body=${encodeURIComponent(bodyLines.join("\n"))}`
+    ].join("");
+
+    // Opens the user's email client with a pre-filled email
+    window.location.href = mailto;
+  });
+  </script>
+</body>
+</html>
