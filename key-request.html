@@ -24,50 +24,49 @@
   </header>
 
   <main>
-    <section class="updates">
-  <h3>Gate Key Request</h3>
+    <section class="updates key-request">
+    <h3>Gate Key Request</h3>
 
-  <form id="keyRequestForm">
-    <label>
-      First name
-      <input name="firstName" autocomplete="given-name" required />
-    </label>
-</br>
+    <form id="keyRequestForm" class="key-form">
+        <div class="form-row">
+        <label>
+            First name
+            <input name="firstName" autocomplete="given-name" required />
+        </label>
 
-    <label>
-      Last name
-      <input name="lastName" autocomplete="family-name" required />
-    </label>
-</br>
-    <label>
-      Lot number
-      <input name="lotNumber" required />
-    </label>
-</br>
-    <label>
-      Number of keys requested
-      <input name="keyCount" type="number" min="1" required />
-    </label>
-</br>
-    <label style="display:flex; gap:10px; align-items:center; justify-content:center;">
-      Replacement key?
-      <input name="isReplacement" type="checkbox" id="isReplacement" />
-    </label>
-</br>
-    <div id="replacementKeyWrap" style="display:none;">
-      <label>
-        Key number being replaced
-        <input name="replacementKeyNumber" id="replacementKeyNumber" />
-      </label>
-    </div>
-</br>
-    <button type="submit">Create Key Request</button>
+        <label>
+            Last name
+            <input name="lastName" autocomplete="family-name" required />
+        </label>
+        </div>
 
-    <p id="formStatus" style="margin-top:10px;"></p>
-  </form>
-</section>
+        <label>
+        Lot number
+        <input name="lotNumber" required />
+        </label>
 
+        <label>
+        Number of keys requested
+        <input name="keyCount" type="number" min="1" required />
+        </label>
 
+        <label class="checkbox-row">
+        <input name="isReplacement" type="checkbox" id="isReplacement" />
+        Replacement key?
+        </label>
+
+        <div id="replacementKeyWrap" class="replacement-wrap">
+        <label>
+            Key number being replaced
+            <input name="replacementKeyNumber" id="replacementKeyNumber" />
+        </label>
+        </div>
+
+        <button type="submit" class="submit-btn">Create Email</button>
+
+        <p id="formStatus" class="form-status"></p>
+    </form>
+    </section>
   </main>
 
   <footer>
