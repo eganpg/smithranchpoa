@@ -32,35 +32,36 @@
       First name
       <input name="firstName" autocomplete="given-name" required />
     </label>
+</br>
 
     <label>
       Last name
       <input name="lastName" autocomplete="family-name" required />
     </label>
-
+</br>
     <label>
       Lot number
       <input name="lotNumber" required />
     </label>
-
+</br>
     <label>
       Number of keys requested
       <input name="keyCount" type="number" min="1" required />
     </label>
-
+</br>
     <label style="display:flex; gap:10px; align-items:center; justify-content:center;">
       Replacement key?
       <input name="isReplacement" type="checkbox" id="isReplacement" />
     </label>
-
+</br>
     <div id="replacementKeyWrap" style="display:none;">
       <label>
         Key number being replaced
         <input name="replacementKeyNumber" id="replacementKeyNumber" />
       </label>
     </div>
-
-    <button type="submit">Create Email</button>
+</br>
+    <button type="submit">Create Key Request</button>
 
     <p id="formStatus" style="margin-top:10px;"></p>
   </form>
@@ -131,7 +132,7 @@
     ];
 
     const mailto = [
-      "mailto:smithranchpoa@gmail.com",
+      "mailto:eganpg@gmail.com",
       `?subject=${encodeURIComponent(subject)}`,
       `&body=${encodeURIComponent(bodyLines.join("\n"))}`
     ].join("");
