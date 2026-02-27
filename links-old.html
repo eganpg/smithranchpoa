@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smith Ranch Property Owners Association</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <img src="assets/images/logo.jpg" alt="Smith Ranch Logo" class="logo" />
+    <nav>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <!-- <li><a href="general-info.html">General Info</a></li> -->
+        <li><a href="documents.html">Documents</a></li>
+        <!-- <li><a href="owner-roster.html">Owner Roster</a></li> -->
+        <li><a href="links.html">Links</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+  <h2>Useful Links</h2>
+
+  <ul>
+    <li><strong>Parks and Wildlife Information</strong>
+      <ul>
+        <li><a href="http://www.tpwd.state.tx.us">Texas Department of Parks and Wildlife</a></li>
+        <li><a href="http://tpwd.texas.gov">Wildlife Management District</a></li>
+        <li><a href="http://tpwd.texas.gov/state-parks/colorado-bend">Colorado Bend State Park</a></li>
+        <li>Game wardens
+          <ul>
+            <li>Shaun Bayless 325‑203‑7817</li>
+            <li>Ray Milloway 512‑734‑1627</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li><strong>River Information</strong>
+      <ul>
+        <li><a href="https://waterdata.usgs.gov">USGS River Flow Data</a> – check out the realtime data.</li>
+        <li><a href="https://hydromet.lcra.org">LCRA Hydromet web page</a> – all monitoring stations related to the Colorado River</li>
+        <li><a href="https://www.srh.noaa.gov">NWS River Forecast Center</a> – a new page with river forecast data</li>
+      </ul>
+    </li>
+
+    <li><strong>Weather</strong>
+      <ul>
+        <li><a href="https://www.wunderground.com/weather/us/tx/lampasas">Lampasas weather</a></li>
+        <li><a href="https://tfsfrp.tamu.edu">Burn bans</a></li>
+      </ul>
+    </li>
+
+    <li><strong>Regional Information</strong>
+      <ul>
+        <li><a href="http://www.ci.lampasas.tx.us">City of Lampasas Web Site</a></li>
+        <li><a href="http://www.lampasascad.org">Lampasas County Appraisal District</a> (use CR 1287 to search by address)</li>
+        <li><a href="http://www.lampasaschamber.org">Lampasas Chamber of Commerce</a></li>
+        <li><a href="http://www.ctcog.org">Central Texas Council of Governments</a></li>
+        <li><a href="http://www.texas.gov">Texas Online</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>Last updated: 05/31/2016</p>
+
+  </main>
+  <footer>
+    <p>Contact us at <a href="mailto:smithranchpoa@gmail.com">smithranchpoa@gmail.com</a></p>
+    <!-- <p>Website questions? Email <a href="mailto:hshine@bcm.edu">David Shine</a></p> -->
+  </footer>
+
+  <script>
+    document.querySelector(".menu-toggle").addEventListener("click", function () {
+      document.querySelector(".nav-links").classList.toggle("active");
+    });
+  </script>
+</body>
+</html>

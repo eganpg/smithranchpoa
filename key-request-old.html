@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- <meta http-equiv="refresh" content="0; url=https://smithranchtx.com" /> -->
+  <title>Smith Ranch Property Owners Association - New Website 2025</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Key request form styling */
+.key-request {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.key-request h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.key-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.key-form label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 0.9rem;
+  font-weight: 600;
+  gap: 6px;
+}
+
+.key-form input {
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.key-form input:focus {
+  outline: none;
+  border-color: #004080;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.checkbox-row {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  font-weight: normal;
+}
+
+.replacement-wrap {
+  display: none;
+}
+
+.submit-btn {
+  margin-top: 10px;
+  padding: 12px;
+  background-color: #004080;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #003060;
+}
+
+.form-status {
+  min-height: 1.2em;
+  font-size: 0.9rem;
+  color: #b00020;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}   
+  </style>
+</head>
+<body>
+  <header>
+    <img src="assets/images/logo.jpg" alt="Smith Ranch Logo" class="logo" />
+    <!-- <h1>Smith Ranch POA</h1> -->
+    <nav>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <!-- <li><a href="general-info.html">General Info</a></li> -->
+        <li><a href="documents.html">Documents</a></li>
+        <!-- <li><a href="owner-roster.html">Owner Roster</a></li> -->
+        <li><a href="links.html">Links</a></li>
+        <li><a href="key-request.html">Gate Keys</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="updates key-request">
+    <h3>Gate Key Request</h3>
+    <p><a href="assets/files/X202506BlankGateNewsletter.pdf" target="_blank"><strong>Instructions for Obtaining Keys</strong></a></p>
+    <p>If you have trouble using the form below, please email your request directly to smithranchpoa@gmail.com</p>
+
+    <form id="keyRequestForm" class="key-form">
+        <div class="form-row">
+        <label>
+            First name
+            <input name="firstName" autocomplete="given-name" required />
+        </label>
+
+        <label>
+            Last name
+            <input name="lastName" autocomplete="family-name" required />
+        </label>
+        </div>
+
+        <label>
+        Lot number
+        <input name="lotNumber" required />
+        </label>
+
+        <label>
+        Number of keys requested
+        <input name="keyCount" type="number" min="1" required />
+        </label>
+
+        <label class="checkbox-row">
+        <input name="isReplacement" type="checkbox" id="isReplacement" />
+        Replacement key?
+        </label>
+
+        <div id="replacementKeyWrap" class="replacement-wrap">
+        <label>
+            Key number being replaced
+            <input name="replacementKeyNumber" id="replacementKeyNumber" />
+        </label>
+        </div>
+
+        <button type="submit" class="submit-btn">Create Key Request</button>
+
+        <p id="formStatus" class="form-status"></p>
+    </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Contact us at <a href="mailto:smithranchpoa@gmail.com">smithranchpoa@gmail.com</a></p>
+    <!-- <p>Website questions? Email <a href="mailto:hshine@bcm.edu">David Shine</a></p> -->
+  </footer>
+
+  <script>
+    document.querySelector(".menu-toggle").addEventListener("click", function () {
+      document.querySelector(".nav-links").classList.toggle("active");
+    });
+    const form = document.getElementById("keyRequestForm");
+  const isReplacement = document.getElementById("isReplacement");
+  const replacementWrap = document.getElementById("replacementKeyWrap");
+  const replacementKeyNumber = document.getElementById("replacementKeyNumber");
+  const statusEl = document.getElementById("formStatus");
+
+  function clean(value) {
+    return (value || "").toString().trim();
+  }
+
+  isReplacement.addEventListener("change", () => {
+    const show = isReplacement.checked;
+    replacementWrap.style.display = show ? "block" : "none";
+    replacementKeyNumber.required = show;
+    if (!show) replacementKeyNumber.value = "";
+    statusEl.textContent = "";
+  });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    statusEl.textContent = "";
+
+    const data = new FormData(form);
+
+    const firstName = clean(data.get("firstName"));
+    const lastName = clean(data.get("lastName"));
+    const lotNumber = clean(data.get("lotNumber"));
+    const keyCount = clean(data.get("keyCount"));
+    const replacement = isReplacement.checked;
+    const replacingKey = clean(data.get("replacementKeyNumber"));
+
+    if (replacement && !replacingKey) {
+      statusEl.textContent = "Please enter the key number being replaced.";
+      replacementKeyNumber.focus();
+      return;
+    }
+
+    const subject = `Smith Ranch Key Request - Lot ${lotNumber}`;
+
+    const bodyLines = [
+      "Smith Ranch POA - Gate Key Request",
+      "----------------------------------",
+      `First name: ${firstName}`,
+      `Last name: ${lastName}`,
+      `Lot number: ${lotNumber}`,
+      `Number of keys requested: ${keyCount}`,
+      `Replacement key: ${replacement ? "Yes" : "No"}`,
+      ...(replacement ? [`Key number being replaced: ${replacingKey}`] : []),
+      "",
+      "Thank you,"
+    ];
+
+    const mailto = [
+      "mailto:smithranchpoa@gmail.com",
+      `?subject=${encodeURIComponent(subject)}`,
+      `&body=${encodeURIComponent(bodyLines.join("\n"))}`
+    ].join("");
+
+    // Opens the user's email client with a pre-filled email
+    window.location.href = mailto;
+  });
+  </script>
+</body>
+</html>

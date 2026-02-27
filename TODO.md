@@ -18,10 +18,10 @@ Once all pages are approved, rename `-dev` files to production.
 
 | Page              | Dev File               | Status         |
 |-------------------|------------------------|----------------|
-| Home              | `index-dev.html`       | ✅ Complete     |
-| Documents         | `documents-dev.html`   | 🔄 In review   |
-| Links             | `links-dev.html`       | 🔄 In review   |
-| Gate Keys         | `key-request-dev.html` | 🔄 In review   |
+| Home              | `index-dev.html`       | ✅ Approved     |
+| Documents         | `documents-dev.html`   | ✅ Approved     |
+| Links             | `links-dev.html`       | ✅ Approved     |
+| Gate Keys         | `key-request-dev.html` | ✅ Approved     |
 
 ## Task List
 
@@ -37,11 +37,12 @@ Once all pages are approved, rename `-dev` files to production.
 - [ ] Review key-request-dev.html
 
 ### Phase 3 - Go Live
-- [ ] Rename `index-dev.html` → `index.html` (backup old first)
-- [ ] Rename `documents-dev.html` → `documents.html`
-- [ ] Rename `links-dev.html` → `links.html`
-- [ ] Rename `key-request-dev.html` → `key-request.html`
-- [ ] Update all internal nav links to remove `-dev` references
+- [x] Rename `index-dev.html` → `index.html` (old backed up as `index-old.html`)
+- [x] Rename `documents-dev.html` → `documents.html` (old backed up as `documents-old.html`)
+- [x] Rename `links-dev.html` → `links.html` (old backed up as `links-old.html`)
+- [x] Rename `key-request-dev.html` → `key-request.html` (old backed up as `key-request-old.html`)
+- [x] Update all internal nav links to production names
+- [ ] Delete `-old` backup files once confirmed stable
 
 ## Notes
 - `key-request.html` already has a working form (mailto-based); preserve all JS logic
