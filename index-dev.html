@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- <meta http-equiv="refresh" content="0; url=https://smithranchtx.com" /> -->
+  <title>Smith Ranch Property Owners Association - New Website 2025</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Raleway:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    :root {
+      --color-bg:         #f4f2ed;
+      --color-header:     #1e3a2f;
+      --color-header-text:#f0ece3;
+      --color-accent:     #b8962e;
+      --color-text:       #2c2c2c;
+      --color-link:       #1a4a6b;
+      --color-footer:     #1e3a2f;
+      --color-footer-text:#f0ece3;
+      --color-nav-hover:  #2e5c45;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+    }
+    h2, h3 { font-family: 'Raleway', sans-serif; }
+
+    header {
+      background-color: var(--color-header);
+      color: var(--color-header-text);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .logo {
+      max-width: 64px;
+      margin: 10px 0;
+    }
+    nav { position: static; }
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li { margin: 0; }
+    .nav-links a {
+      color: var(--color-header-text);
+      display: block;
+      padding: 10px 16px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      transition: background-color 0.2s, color 0.2s;
+    }
+    .nav-links a:hover {
+      background-color: var(--color-nav-hover);
+      color: #fff;
+    }
+    .menu-toggle { display: none; }
+
+    @media (max-width: 640px) {
+      header {
+        flex-wrap: wrap;
+        padding: 12px 16px;
+      }
+      .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--color-header-text);
+        font-size: 1.6rem;
+        cursor: pointer;
+        padding: 0;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        padding-bottom: 8px;
+      }
+      .nav-links.active { display: flex; }
+    }
+    footer {
+      background-color: var(--color-footer);
+      color: var(--color-footer-text);
+    }
+    footer a {
+      color: var(--color-accent);
+    }
+    a {
+      color: var(--color-link);
+    }
+    h3 {
+      color: var(--color-header);
+      border-bottom: 2px solid var(--color-accent);
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    /* Hero section */
+    .welcome {
+      background: linear-gradient(135deg, #1e3a2f 0%, #2e5c45 60%, #3a6b4a 100%);
+      color: #f0ece3;
+      padding: 72px 24px;
+      text-align: center;
+      margin: -20px -20px 20px -20px;
+    }
+    .welcome h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin: 0 0 16px 0;
+      color: #fff;
+      letter-spacing: 0.02em;
+    }
+    .welcome p {
+      font-size: 1.1rem;
+      max-width: 520px;
+      margin: 0 auto;
+      color: #d4cfc5;
+      line-height: 1.7;
+    }
+    .welcome::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 3px;
+      background: var(--color-accent);
+      margin: 28px auto 0;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="assets/images/logo.jpg" alt="Smith Ranch Logo" class="logo" />
+    <!-- <h1>Smith Ranch POA</h1> -->
+    <nav>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <!-- <li><a href="general-info.html">General Info</a></li> -->
+        <li><a href="documents.html">Documents</a></li>
+        <!-- <li><a href="owner-roster.html">Owner Roster</a></li> -->
+        <li><a href="links.html">Links</a></li>
+        <li><a href="key-request.html">Gate Keys</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="welcome">
+      <h2>Welcome to Smith Ranch POA</h2>
+      <p>This site serves as a communication platform for property owners. It's maintained at no cost to the association.</p>
+    </section>
+
+    <section class="updates">
+      <h3>Recent Updates</h3>
+      <ul>
+        <!-- <li><a href="assets/files/test.pdf" target="_blank">Test Minutes PDF</a></li> -->
+        <li><a href="assets/files/newsletters/2026_04_Newsletter.pdf" target="_blank"><strong>April 2026 Newsletter</strong></a> – Posted 02/13/2026 </li>
+        <li><a href="assets/files/minutes/2026_BOD_Called_02-01-26_Minutes.pdf" target="_blank"><strong>2026 Regular Board of Directors Meeting Minutes</strong></a> – Posted 02/10/2026 </li>
+        <li><a href="assets/files/treasurer_reports/2025-12-31_Treasurer_Report.pdf" target="_blank"><strong>2025 Treasurer Report</strong></a> – Posted 01/26/2026 </li>
+        <li><a href="assets/files/2026-BOD-Called-Agenda.pdf" target="_blank"><strong>Board of Directors Meeting Called - Agenda</strong></a> – Posted 01/20/2026 </li>   
+        <li><a href="assets/files/2025-Main-Gate-Security-Posting.pdf" target="_blank"><strong>Main Gate Security Posting</strong></a> – Posted 09/02/2025 </li>  
+        <li><a href="assets/files/Treasurer-Report-06-30-25.pdf" target="_blank"><strong>Treasurer’s Report Ending 6-30-2025</strong></a> – Posted 08/16/2025 </li>  
+        <li><a href="assets/files/2025-07FloodRoadNewsletterPosted.pdf" target="_blank"><strong>2025 Flood Road Newsletter</strong></a> – Posted 08/9/2025 </li>  
+        <li><a href="assets/files/x2025GateCredentialPolicy.pdf" target="_blank"><strong>Gate Credential Policy 2025</strong></a> – Posted 07/15/2025 </li>  
+        <li><a href="assets/files/X202506BlankGateNewsletter.pdf" target="_blank"><strong>Main Gate Upgrade Notice</strong></a> – Posted 06/18/2025 </li>
+        <li><a href="assets/files/2025AnnualMinutes.pdf" target="_blank"><strong>2025 Annual Meeting Minutes</strong></a> – Posted 05/09/2025</li>
+        <li><a href="assets/files/minutes/2025_BOD_Regular_Meeting_Minutes.pdf" target="_blank"><strong>2025 Board of Directors Meeting Minutes - May</strong></a> – Posted 05/25/2025</li>
+        <li><a href="assets/files/2025BODRegularMinutes.pdf" target="_blank"><strong>2025 Board of Directors Meeting Minutes - April</strong></a> – Posted 05/09/2025</li>
+        <li><a href="assets/files/2025BODandOfficers.pdf" target="_blank"><strong>2025 Board of Directors and Officers</strong></a> – Posted 04/30/2025</li>
+        <li><a href="assets/files/2025AnnualMeetingAgenda.pdf" target="_blank"><strong>2025 Annual Meeting Agenda</strong></a> – Posted 04/21/2025</li>
+        <li><a href="assets/files/2024-06-30TreasurerReport.pdf" target="_blank"><strong>Treasurer's Report Jan - Dec 2024</strong></a> – Posted 02/19/2025</li>
+        <li><a href="assets/files/202505Newsletter.pdf" target="_blank"><strong>April 2024 Newsletter</strong></a> – Posted 04/11/2024</li>
+        <li><a href="assets/files/X202506BlankGateNewsletter.pdf" target="_blank"><strong>Instructions for Obtaining Keys</strong></a> – Posted 12/01/2024</li>
+        <li><a href="assets/files/2018ByLawsAdoptedRevisions2024.pdf" target="_blank"><strong>Revised Bylaws</strong></a> – Posted 05/03/2019</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Contact us at <a href="mailto:smithranchpoa@gmail.com">smithranchpoa@gmail.com</a></p>
+    <!-- <p>Website questions? Email <a href="mailto:hshine@bcm.edu">David Shine</a></p> -->
+  </footer>
+
+  <script>
+    document.querySelector(".menu-toggle").addEventListener("click", function () {
+      document.querySelector(".nav-links").classList.toggle("active");
+    });
+  </script>
+</body>
+</html>
