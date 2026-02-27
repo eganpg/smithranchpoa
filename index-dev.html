@@ -69,27 +69,43 @@
     }
     .menu-toggle { display: none; }
 
-    @media (max-width: 640px) {
+    @media (max-width: 768px) {
       header {
         flex-wrap: wrap;
-        padding: 12px 16px;
+        padding: 0 16px;
+        gap: 0;
+      }
+      .logo {
+        margin: 12px 0;
+      }
+      nav {
+        position: static;
+        display: flex;
+        align-items: center;
       }
       .menu-toggle {
         display: block;
+        position: static;
         background: none;
         border: none;
         color: var(--color-header-text);
         font-size: 1.6rem;
         cursor: pointer;
-        padding: 0;
+        padding: 8px 0;
+        line-height: 1;
       }
       .nav-links {
         display: none;
         flex-direction: column;
         width: 100%;
-        padding-bottom: 8px;
+        padding: 0 0 12px 0;
+        gap: 2px;
+        background-color: var(--color-header);
+        border-top: 1px solid var(--color-nav-hover);
       }
       .nav-links.active { display: flex; }
+      .nav-links li { width: 100%; border-top: none; }
+      .nav-links a { padding: 12px 8px; border-radius: 4px; }
     }
     body {
       display: flex;
@@ -247,14 +263,11 @@
 <body>
   <header>
     <img src="assets/images/logo.jpg" alt="Smith Ranch Logo" class="logo" />
-    <!-- <h1>Smith Ranch POA</h1> -->
     <nav>
       <button class="menu-toggle" aria-label="Toggle menu">☰</button>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <!-- <li><a href="general-info.html">General Info</a></li> -->
         <li><a href="documents.html">Documents</a></li>
-        <!-- <li><a href="owner-roster.html">Owner Roster</a></li> -->
         <li><a href="links.html">Links</a></li>
         <li><a href="key-request.html">Gate Keys</a></li>
       </ul>
