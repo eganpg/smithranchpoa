@@ -20,8 +20,8 @@ Once all pages are approved, rename `-dev` files to production.
 |-------------------|------------------------|----------------|
 | Home              | `index-dev.html`       | ✅ Complete     |
 | Documents         | `documents-dev.html`   | 🔄 In review   |
-| Links             | `links-dev.html`       | ⬜ Not started  |
-| Gate Keys         | `key-request-dev.html` | ⬜ Not started  |
+| Links             | `links-dev.html`       | 🔄 In review   |
+| Gate Keys         | `key-request-dev.html` | 🔄 In review   |
 
 ## Task List
 
