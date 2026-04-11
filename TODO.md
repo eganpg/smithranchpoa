@@ -25,6 +25,13 @@ Once all pages are approved, rename `-dev` files to production.
 
 ## Task List
 
+### Phase 4 - Dues Payment Page
+- [x] Create `dues.html` — annual dues payment page with Stripe integration
+- [ ] Set up Stripe account and Payment Link (see setup instructions in dues.html)
+- [ ] Replace `STRIPE_PAYMENT_LINK_PLACEHOLDER` in dues.html with live Stripe URL
+- [ ] Test payment flow end-to-end
+- [ ] Delete `-old` backup files once confirmed stable
+
 ### Phase 1 - Build Dev Pages
 - [x] Create `documents-dev.html` — styled cards, show/hide toggles per section, standardized header/footer
 - [x] Clean up `index-dev.html` header — removed stale comments, aligned with documents-dev pattern
