@@ -19,7 +19,7 @@ Static HTML site — no build tools, backend, or server required. Pages are edit
 | Documents | `documents.html` | PDFs: meeting minutes, bylaws, treasurer reports, newsletters |
 | Links | `links.html` | Curated external links (utilities, county, HOA resources) |
 | Gate Key Request | `key-request.html` | Form that opens a pre-filled email to the POA |
-| Dues Payment | `dues.html` | Stripe payment link for annual dues |
+| Dues Payment | `dues.html` | Stripe payment link for annual dues — **not linked in the navbar, not live** (see below) |
 | Payment Success | `payment-success.html` | Confirmation page shown after dues payment |
 
 ---
@@ -59,17 +59,27 @@ The year appears in the footer of each page. Search for the year and update acro
 
 ## Stripe Dues Payment
 
-The `dues.html` page uses a **Stripe Payment Link** (not embedded Stripe.js — just a redirect link).
+> **Not live.** `dues.html` is not linked in the navbar and is not accessible to visitors until the steps below are completed.
 
-To update or replace the payment link:
+The page is built and ready — it just needs a real Stripe Payment Link and then a nav link to go live.
+
+### To activate dues payment
+
+**Step 1 — Configure Stripe:**
 1. Log in to [Stripe Dashboard](https://dashboard.stripe.com) → Products → Payment Links
-2. Create or edit a Payment Link for annual dues
-3. In `dues.html`, replace the Stripe URL (search for `buy.stripe.com`) in the two places it appears
+2. Create a Payment Link with these settings:
+   - Product: Smith Ranch POA Annual Dues
+   - Amount: Customer-entered (minimum $300)
+   - Custom fields: Lot/Property Number, Dues Year
+3. Copy the generated URL (format: `https://buy.stripe.com/xxxxxxxx`)
 
-The current link is configured for:
-- Product: Smith Ranch POA Annual Dues
-- Amount: Customer-entered (minimum $300)
-- Custom fields: Lot/Property Number, Dues Year
+**Step 2 — Add the URL to the page:**
+1. Open `dues.html` and search for `buy.stripe.com`
+2. Replace the placeholder URL in the two places it appears with your new link
+
+**Step 3 — Add to the navbar:**
+1. Open every HTML file and add a "Dues" link to the nav section following the existing pattern
+2. Commit and push to deploy
 
 ---
 
