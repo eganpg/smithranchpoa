@@ -50,7 +50,9 @@ Upload the PDF to `assets/files/` and add a link in `documents.html` under the c
 Edit `links.html`.
 
 ### Updating the navigation
-Each page has its own copy of the nav. If you change a link, update it in every HTML file.
+The navbar is a shared component — edit **`js/navbar.js`** and all pages update at once.
+
+To add or remove a nav link, find the `<ul class="nav-links">` block in `navbar.js` and add or remove a `<li>` entry there.
 
 ### Updating the copyright year
 The year appears in the footer of each page. Search for the year and update across all files.
@@ -78,7 +80,7 @@ The page is built and ready — it just needs a real Stripe Payment Link and the
 2. Replace the placeholder URL in the two places it appears with your new link
 
 **Step 3 — Add to the navbar:**
-1. Open every HTML file and add a "Dues" link to the nav section following the existing pattern
+1. Open `js/navbar.js` and uncomment the `dues.html` line
 2. Commit and push to deploy
 
 ---
@@ -93,6 +95,8 @@ smithranchpoa/
 ├── key-request.html
 ├── dues.html
 ├── payment-success.html
+├── js/
+│   └── navbar.js          # Shared navbar component (injected into every page)
 ├── css/
 │   └── style.css          # Legacy base styles
 ├── assets/
@@ -114,6 +118,7 @@ smithranchpoa/
 - **No dependencies** — `package.json` is empty, no npm needed
 - **No CMS** — all content is edited directly in HTML files
 - **Styling** — each page has inline CSS using a shared color palette (dark green `#1e3a2f`, gold `#b8962e`, cream `#f4f2ed`)
-- **Mobile menu** — JavaScript toggles the nav on screens under 768px
+- **Navbar component** — `js/navbar.js` injects the `<header>` into every page and handles the mobile menu toggle; edit once, updates everywhere
+- **Mobile menu** — hamburger toggle activates on screens under 768px
 - **Gate key form** — uses `mailto:` so it opens the visitor's email client; no server-side processing
 - **Fonts** — Google Fonts (Inter, Raleway) loaded via CDN link in each page's `<head>`
